@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Spinner</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #fef9ef;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    #spinner {
+      width: 300px;
+      height: 300px;
+      border: 10px solid #333;
+      border-radius: 50%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      transition: transform 4s ease-out;
+    }
+
+    .sector {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0% 0%;
+      background: #ffd966;
+      border: 1px solid #333;
+      clip-path: polygon(0 0, 100% 0, 0 100%);
+      text-align: left;
+      padding-left: 10px;
+      font-size: 0.9rem;
+    }
+
+    #pointer {
+      width: 0; 
+      height: 0; 
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-bottom: 30px solid red;
+      margin: 20px auto;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: #4caf50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>ABA Game Spinner</h1>
+  <div id="pointer"></div>
+  <div id="spinner"></div>
+  <button onclick="spin()">Spin!</button>
+  <div id="result"></div>
+
+  <script>
+    const games = [
+      "Hot Potato",
+      "Duck Duck Goose",
+      "Musical Chairs",
+      "Freeze Dance",
+      "Simon Says",
+      "Red Light Green Light",
+      "Follow the Leader",
+      "Obstacle Course",
+      "Keep the Balloon Up",
+      "Bean Bag Toss",
+      "Hide and Seek",
+      "Floor is Lava"
+    ];
+
+    const spinner = document.getElementById("spinner");
+
+    function createWheel() {
+      const angle = 360 / games.length;
+      spinner.innerHTML = "";
+      games.forEach((game, i) => {
+        const sector = document.createElement("div");
+        sector.className = "sector";
+        sector.textContent = game;
+        sector.style.transform = `rotate(${i * angle}deg) skewY(-${90 - angle}deg)`;
+        sector.style.background = i % 2 === 0 ? "#fce694" : "#ffd966";
+        spinner.appendChild(sector);
+      });
+    }
+
+    let currentRotation = 0;
+
+    function spin() {
+      const spins = Math.floor(Math.random() * 5 + 5); // 5-9 spins
+      const anglePerItem = 360 / games.length;
+      const selectedIndex = Math.floor(Math.random() * games.length);
+      const endRotation = 360 * spins + (360 - selectedIndex * anglePerItem - anglePerItem / 2);
+
+      currentRotation += endRotation;
+      spinner.style.transform = `rotate(${currentRotation}deg)`;
+
+      setTimeout(() => {
+        document.getElementById("result").textContent = `🎉 ${games[selectedIndex]}! 🎉`;
+      }, 4000); // match transition duration
+    }
+
+    createWheel();
+  </script>
+</body>
+</html>
