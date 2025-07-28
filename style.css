@@ -35,13 +35,30 @@ body {
   position: relative;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto; /* center horizontally */
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;  /* stack items vertically */
+  align-items: center;     /* horizontally center children */
 }
 
 #wheel {
-  width: 100%;      /* fill container width */
-  height: auto;     /* keep aspect ratio */
+  width: 90%;           /* responsive width */
+  max-width: 400px;
+  height: auto;
   display: block;
+}
+
+#spin-btn {
+  margin-top: 1rem;
+  padding: 12px 30px;
+  font-size: 1.3rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .arrow {
@@ -65,18 +82,6 @@ body {
     border-top-width: 22px;
     top: -22px;
   }
-}
-
-#spin-btn {
-  margin-top: 2rem;
-  padding: 12px 30px;
-  font-size: 1.3rem;
-  background: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 #spin-btn:hover:not(:disabled) {
