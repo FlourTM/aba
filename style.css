@@ -1,0 +1,112 @@
+/* Reset and base */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(135deg, #c3a3f1, #6414e9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.wrapper {
+  width: 90vw;
+  max-width: 440px;
+  background-color: #ffffff;
+  padding: 1.5em;
+  border-radius: 1em;
+  box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  height: auto;
+}
+
+#wheel {
+  width: 90vw;       /* Responsive width */
+  max-width: 400px;  /* Max size on bigger screens */
+  height: auto;      /* Maintain aspect ratio */
+  display: block;
+  margin: 0 auto;
+}
+
+.arrow {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 30px solid red;
+  z-index: 10;
+}
+
+/* Scale down arrow on small screens */
+@media (max-width: 400px) {
+  .arrow {
+    border-left-width: 15px;
+    border-right-width: 15px;
+    border-top-width: 22px;
+    top: -22px;
+  }
+}
+
+#spin-btn {
+  margin-top: 2rem;
+  padding: 12px 30px;
+  font-size: 1.3rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#spin-btn:hover:not(:disabled) {
+  background: #45a049;
+}
+
+#spin-btn:disabled {
+  background: #a5d6a7;
+  cursor: not-allowed;
+}
+
+#final-value {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #202020;
+}
+
+#game-description {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+  min-height: 1.4em; /* keeps space even if empty */
+}
+
+/* Optional: smaller font on very small screens */
+@media (max-width: 360px) {
+  #final-value {
+    font-size: 1.2rem;
+  }
+
+  #spin-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+}
