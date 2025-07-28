@@ -16,9 +16,15 @@ body {
 }
 
 .wrapper {
-  width: 90vw;
+  display: flex;
+  flex-direction: column;  /* stack elements vertically */
+  justify-content: center; /* vertical center */
+  align-items: center;     /* horizontal center */
+  height: 100vh;           /* full viewport height */
   max-width: 440px;
-  background-color: #ffffff;
+  width: 90vw;
+  margin: 0 auto;          /* center horizontally in viewport */
+  background-color: #fff;
   padding: 1.5em;
   border-radius: 1em;
   box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
@@ -29,19 +35,13 @@ body {
   position: relative;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;        /* centers horizontally */
-  height: auto;
-  display: flex;         /* flex centering */
-  justify-content: center;
-  align-items: center;
+  margin: 0 auto; /* center horizontally */
 }
 
 #wheel {
-  width: 90vw;           /* responsive width */
-  max-width: 400px;
-  height: auto;          /* keep aspect ratio */
+  width: 100%;      /* fill container width */
+  height: auto;     /* keep aspect ratio */
   display: block;
-  margin: 0 auto;        /* extra safety centering */
 }
 
 .arrow {
