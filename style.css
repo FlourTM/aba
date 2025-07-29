@@ -55,10 +55,11 @@ body {
 .arrow {
   width: 0;
   height: 0;
-  margin-bottom: 0.5rem; /* space before wheel */
+  margin: 0 auto 1rem auto;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 30px solid red;
+  border-top: 0;
+  border-bottom: 30px solid red; /* arrow pointing down */
 }
 
 
