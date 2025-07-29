@@ -1,4 +1,4 @@
-/* Reset & Base Styles */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -6,64 +6,70 @@
   font-family: "Poppins", sans-serif;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #c3a3f1, #6414e9);
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(135deg, #c3a3f1, #6414e9);
   padding: 1rem;
-  text-align: center;
   color: #202020;
 }
 
+/* Main wrapper card */
 .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90vw;
+  max-width: 440px;
   background-color: #fff;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
-  width: 100%;
-  max-width: 440px;
+  text-align: center;
 }
 
-/* Spinner Container */
-.container {
-  position: relative;
-  margin: 1rem 0;
+/* Title spacing */
+#category-title {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+/* Spinner wrapper flex column */
+.spinner-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.spinner-wrapper {
-  position: relative;  /* necessary for absolute positioning inside */
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem; /* space before button */
 }
 
-#wheel {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-}
-
+/* Arrow pointing down (above wheel) */
 .arrow {
-  position: absolute;
-  top: -30px;           /* arrow sits 30px above the canvas top */
-  left: 50%;
-  transform: translateX(-50%);
   width: 0;
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-top: 30px solid red;
-  z-index: 10;
+  border-bottom: 30px solid red; /* arrow points down */
 }
 
-/* Spin Button */
+/* Wheel canvas */
+#wheel {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+}
+
+/* Spin button */
 #spin-btn {
-  margin-top: 1rem;
   padding: 12px 30px;
   font-size: 1.3rem;
   background: #4caf50;
@@ -83,7 +89,7 @@ body {
   cursor: not-allowed;
 }
 
-/* Result Text */
+/* Result text */
 #final-value {
   margin-top: 1.5rem;
   font-size: 1.5rem;
@@ -97,12 +103,16 @@ body {
   min-height: 1.4em;
 }
 
-/* Homepage Buttons (from index.html) */
+/* Homepage buttons container */
 .button-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
   margin-top: 2rem;
+  width: 100%;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .button-grid a {
@@ -113,19 +123,20 @@ body {
   border-radius: 10px;
   text-decoration: none;
   transition: background 0.3s ease;
+  display: block;
+  text-align: center;
 }
 
 .button-grid a:hover {
   background: #388e3c;
 }
 
-/* Smaller Screens */
+/* Responsive adjustments */
 @media (max-width: 400px) {
   .arrow {
     border-left-width: 15px;
     border-right-width: 15px;
-    border-top-width: 22px;
-    top: -22px;
+    border-bottom-width: 22px;
   }
 
   #spin-btn {
