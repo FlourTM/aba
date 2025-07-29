@@ -60,26 +60,30 @@ function spinWheel() {
   const start = performance.now();
 
   function animate(time) {
-    const elapsed = time - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = (--progress) * progress * progress + 1;
-    const currentAngle = eased * endAngle;
+  const elapsed = time - start;
+  const progress = Math.min(elapsed / duration, 1);
+  const eased = easeOutCubic(progress);
+  const currentAngle = eased * endAngle;
 
-    myChart.options.rotation = currentAngle % 360;
-    myChart.update();
+  myChart.options.rotation = currentAngle % 360;
+  myChart.update();
 
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    } else {
-      const finalRotation = myChart.options.rotation;
-      const normalizedAngle = 360 - (finalRotation % 360);
-      const landedIndex = Math.floor(normalizedAngle / segmentAngle) % totalSegments;
-      const landedLabel = labels[landedIndex];
-      finalValue.innerHTML = `<p>🎉 ${landedLabel} 🎉</p>`;
-      document.getElementById("game-description").textContent = descriptions[landedIndex];
-      spinBtn.disabled = false;
-    }
+  if (progress < 1) {
+    requestAnimationFrame(animate);
+  } else {
+    const finalRotation = myChart.options.rotation;
+    const normalizedAngle = 360 - (finalRotation % 360);
+    const landedIndex = Math.floor(normalizedAngle / segmentAngle) % totalSegments;
+    const landedLabel = labels[landedIndex];
+    finalValue.innerHTML = `<p>🎉 ${landedLabel} 🎉</p>`;
+    document.getElementById("game-description").textContent = descriptions[landedIndex];
+    spinBtn.disabled = false;
   }
+}
+  function easeOutCubic(t) {
+  return (--t) * t * t + 1;
+}
+
 
   requestAnimationFrame(animate);
 }
