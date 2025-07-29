@@ -58,8 +58,7 @@ body {
   margin: 0 auto 1rem auto;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-top: 0;
-  border-bottom: 30px solid red; /* arrow pointing down */
+  border-top: 30px solid red; /* ← this is what makes it point DOWN */
 }
 
 
