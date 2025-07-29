@@ -36,9 +36,10 @@ body {
 }
 
 .spinner-wrapper {
-  position: relative;
+  position: relative;  /* necessary for absolute positioning inside */
   width: 100%;
   max-width: 400px;
+  margin: 0 auto;
 }
 
 #wheel {
@@ -49,7 +50,7 @@ body {
 
 .arrow {
   position: absolute;
-  top: -30px;
+  top: -30px;           /* arrow sits 30px above the canvas top */
   left: 50%;
   transform: translateX(-50%);
   width: 0;
