@@ -1,64 +1,50 @@
-/* Reset and base */
+/* Reset & Base Styles */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   background: linear-gradient(135deg, #c3a3f1, #6414e9);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  text-align: center;
+  color: #202020;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: column;  /* stack elements vertically */
-  justify-content: center; /* vertical center */
-  align-items: center;     /* horizontal center */
-  height: 100vh;           /* full viewport height */
-  max-width: 440px;
-  width: 90vw;
-  margin: 0 auto;          /* center horizontally in viewport */
   background-color: #fff;
-  padding: 1.5em;
-  border-radius: 1em;
+  padding: 2rem;
+  border-radius: 1rem;
   box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
-  text-align: center;
+  width: 100%;
+  max-width: 440px;
 }
 
+/* Spinner Container */
 .container {
+  position: relative;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.spinner-wrapper {
   position: relative;
   width: 100%;
   max-width: 400px;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;  /* stack items vertically */
-  align-items: center;     /* horizontally center children */
 }
 
 #wheel {
-  width: 90%;           /* responsive width */
+  width: 100%;
   max-width: 400px;
   height: auto;
-  display: block;
-}
-
-#spin-btn {
-  margin-top: 1rem;
-  padding: 12px 30px;
-  font-size: 1.3rem;
-  background: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
 }
 
 .arrow {
@@ -74,14 +60,17 @@ body {
   z-index: 10;
 }
 
-/* Scale down arrow on small screens */
-@media (max-width: 400px) {
-  .arrow {
-    border-left-width: 15px;
-    border-right-width: 15px;
-    border-top-width: 22px;
-    top: -22px;
-  }
+/* Spin Button */
+#spin-btn {
+  margin-top: 1rem;
+  padding: 12px 30px;
+  font-size: 1.3rem;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 #spin-btn:hover:not(:disabled) {
@@ -93,28 +82,57 @@ body {
   cursor: not-allowed;
 }
 
+/* Result Text */
 #final-value {
   margin-top: 1.5rem;
   font-size: 1.5rem;
   font-weight: 600;
-  color: #202020;
 }
 
 #game-description {
   font-size: 1rem;
   color: #555;
   margin-top: 0.5rem;
-  min-height: 1.4em; /* keeps space even if empty */
+  min-height: 1.4em;
 }
 
-/* Optional: smaller font on very small screens */
-@media (max-width: 360px) {
-  #final-value {
-    font-size: 1.2rem;
+/* Homepage Buttons (from index.html) */
+.button-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.button-grid a {
+  background: #4caf50;
+  color: white;
+  padding: 1rem;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.button-grid a:hover {
+  background: #388e3c;
+}
+
+/* Smaller Screens */
+@media (max-width: 400px) {
+  .arrow {
+    border-left-width: 15px;
+    border-right-width: 15px;
+    border-top-width: 22px;
+    top: -22px;
   }
 
   #spin-btn {
     font-size: 1rem;
     padding: 10px 20px;
+  }
+
+  #final-value {
+    font-size: 1.2rem;
   }
 }
