@@ -33,46 +33,72 @@ const gameData = {
   board: {
     title: "Board Games",
     labels: [
-      "Connect Four",
-      "Candy Land",
-      "Chutes and Ladders",
-      "UNO"
+      "Game 1",
+      "Game 2",
+      "Game 3",
+      "Game 4"
     ],
     descriptions: [
-      "Match four discs in a row.",
-      "Color matching game for all ages.",
-      "Climb ladders and slide down chutes!",
-      "Match colors or numbers to play your cards."
+      "Game 1 description",
+      "Game 2 description",
+      "Game 3 description",
+      "Game 4 description"
     ]
   },
   motor: {
-    title: "Motor Games",
-    labels: [
-      "Jumping Jacks",
-      "Crab Walk",
-      "Bear Crawl",
-      "Hop on One Foot"
-    ],
-    descriptions: [
-      "Jump and clap your hands overhead.",
-      "Walk using hands and feet, belly up!",
-      "Crawl like a bear using hands and feet.",
-      "Hop on one foot as long as you can!"
-    ]
-  },
-  ball: {
-    title: "Ball Games",
-    labels: [
-      "Catch",
-      "Kickball",
-      "Basketball",
-      "Roll and Chase"
-    ],
-    descriptions: [
-      "Toss and catch with a partner.",
-      "Kick the ball and run bases.",
-      "Shoot hoops into a basket.",
-      "Roll the ball and race to get it!"
-    ]
-  }
+  title: "Motor Games",
+  labels: [
+    "Obstacle Course",
+    "Floor is Lava",
+    "Relay Race",
+    "Jump the River",
+    "Balloon Volleyball",
+    "Simon Says",
+    "Freeze Dance",
+    "Night at the Museum",
+    "Red Light Green Light",
+    "Walk the Plank",
+    "Hopscotch",
+    "Sleeping Frogs"
+  ],
+  descriptions: [
+    "Climb, crawl, and jump through a fun physical course.",
+    "Pretend the floor is lava—step only on 'safe' spots!",
+    "Race to tag the next runner in a team relay.",
+    "Leap across 'rivers' made of paper or tape.",
+    "Keep a balloon up by volleying it over a line or net.",
+    "Follow commands only if they start with 'Simon says'.",
+    "Dance to music, then freeze when it stops!",
+    "Walk slowly toward the guard and freeze when they turn around.",
+    "Start and stop based on red and green light commands.",
+    "Pretend to walk the plank, then jump into the 'ocean' below!",
+    "Hop through chalk squares in a numbered pattern.",
+    "Pretend to sleep, then hop like frogs when the bell rings!"
+  ]
+},
+ball: {
+  title: "Ball Games",
+  labels: [
+    "Kickball",
+    "Soccer",
+    "Bowling",
+    "Catch",
+    "Skeeball",
+    "Ball Toss",
+    "Animal Walks with Ball",
+    "Break the Pyramid",
+    "Body Ball"
+  ],
+  descriptions: [
+    "Kick the ball and run bases with your team.",
+    "Dribble and kick the ball to score a goal.",
+    "Roll a ball to knock down pins or bottles.",
+    "Toss and catch with a partner or in a circle.",
+    "Roll or throw balls into scoring holes.",
+    "Toss a ball into a bucket or target.",
+    "Walk like animals while pushing or carrying a ball.",
+    "Knock down stacked cups or blocks with a ball.",
+    "Push the ball from point A to B using only the called-out body part."
+  ]
+}
 };
